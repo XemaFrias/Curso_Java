@@ -39,4 +39,41 @@ public class Main {
     	else if (score >= 100) position=   3;
     	return position;
 	}
+	//Following methods for Challenge number 2 convert form Km/h to mi/h
+	public static long toMilesPerHour(double kilometersPerHour){
+		if(kilometersPerHour<0){
+			return -1;
+		}
+		double miles=kilometersPerHour/1.609;
+		return Math.round(miles);
+	}
+	public static void printConversion (double kilometersPerHour){
+		if(kilometersPerHour<0) System.out.println("Invalid Value");
+		else System.out.println(kilometersPerHour+" km/h = "+(toMilesPerHour(kilometersPerHour))+ " mi/h");
+		}
+	//Challenge to print MegaBytes and KiloBytes
+	public static void printMegaBytesAndKiloBytes(int kiloBytes){
+    	if (kiloBytes<0) System.out.println("Invalid Value");
+    	else System.out.println(kiloBytes+" KB = "+kiloBytes/1024+" MB and "+kiloBytes%1024+" KB");
+	}
+
+	//Challenge to know if year is leap year
+	public static boolean isLeapYear (int year){
+		if (year<1 || year> 9999)return false;
+		else if (year%400==0)return true; 					//If year is divisible by 400 it is leap year
+		else if (year%100==0 && year%400!=0)return false; //If year is divisible by 100 BUT NOT 400 is not leap Year
+		else return (year % 4) == 0;					//If year is divisible by 4 and fulfills previous conditions, is leap year
+	}
+
+	//Challenge to compare 2 numbers up to 3 decimal places
+	public static boolean areEqualByThreeDecimalPlaces(double num1,double num2){
+    	int IntNum1=(int)(num1*1000);
+		int IntNum2=(int)(num2*1000);
+    	return  ((IntNum1-IntNum2)==0);
+	}
+
+	//Challenge to see if first 2 parameters equal the last one
+	public static boolean hasEqualSum(int num1, int num2, int num3){
+    	return (num1+num2)==num3;
+	}
 }
