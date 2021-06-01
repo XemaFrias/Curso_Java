@@ -23,6 +23,11 @@ public class Main {
     //Find Largest and Smallest number on unsorted array
         findSmallestLargestNumber(arrayBase);
 
+    //Reverse an array in place
+        System.out.println("We want to reverse the array:");
+        printArray(arrayBase);
+        reverseArray(arrayBase);
+
 
     }
     public static void printArray (int [] arr){
@@ -74,7 +79,7 @@ public class Main {
         printArray(arrayBase);
         return arrayBase;
     }
-    public static void quicksort(int A[], int izq, int der) {
+    public static void quicksort(int []A, int izq, int der) {
 
         int pivote=A[izq]; // tomamos primer elemento como pivote
         int i=izq;         // i realiza la búsqueda de izquierda a derecha
@@ -121,5 +126,22 @@ public class Main {
             System.out.println("The maximum number is "+max+" and the minimum number is "+min);
         }
 
+    }
+
+    public static void reverseArray(int []arr){
+        int arraySize= arr.length;
+        if (arraySize<=0){
+            System.out.println("Array of size 0. Not valid");
+        }
+        else{
+            int swap=0;
+            int topBound=arraySize-1;
+            for (int i=0; i<arraySize/2;i++){
+                swap=arr[i];
+                arr[i]=arr[topBound-i];
+                arr[topBound-i]=swap;
+            }
+            printArray(arr);
+        }
     }
 }
