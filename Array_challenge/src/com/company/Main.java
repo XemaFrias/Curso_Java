@@ -28,6 +28,11 @@ public class Main {
         printArray(arrayBase);
         reverseArray(arrayBase);
 
+    //How do you find all pairs of an integer array whose sum is equal to a given number
+        int numSum=8;
+        printSumPairs(arrayBase,numSum);
+
+
 
     }
     public static void printArray (int [] arr){
@@ -143,5 +148,20 @@ public class Main {
             }
             printArray(arr);
         }
+    }
+
+    public static void printSumPairs(int [] arr, int numSum){
+        if(numSum<=0){
+            System.out.println("Non Valid Number");
+            return;
+        }
+        for (int i=0;i< arr.length-1;i++){
+            for(int j=i+1;j< arr.length;j++){
+                if(arr[i]+arr[j]==numSum){
+                    System.out.println("Tuple "+arr[i]+" "+arr[j]+" is equal to "+numSum);
+                }
+            }
+        }
+
     }
 }
