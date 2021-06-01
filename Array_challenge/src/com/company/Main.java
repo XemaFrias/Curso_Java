@@ -20,6 +20,9 @@ public class Main {
         arrayBase = new int[]{4, 5, 3, 4, 1, 2};
         int [] nonDuplicate=findDuplicateNumber(arrayBase);
 
+    //Find Largest and Smallest number on unsorted array
+        findSmallestLargestNumber(arrayBase);
+
 
     }
     public static void printArray (int [] arr){
@@ -95,6 +98,28 @@ public class Main {
             quicksort(A,izq,j-1);          // ordenamos subarray izquierdo
         if(j+1 < der)
             quicksort(A,j+1,der);          // ordenamos subarray derecho
+
+    }
+
+    public static void findSmallestLargestNumber(int [] arr){
+        int arraySize= arr.length;
+        if (arraySize<=0){
+            System.out.println("Array of size 0. Not valid");
+        }
+        else{
+            int max=arr[0],min=arr[0];
+            for (int i=0; i<arraySize;i++){
+                if (arr[i]>max){
+                        max=arr[i];
+                    }
+                if (arr[i]<min){
+                    min=arr[i];
+                }
+            }
+            System.out.print("For the array ");
+            printArray(arr);
+            System.out.println("The maximum number is "+max+" and the minimum number is "+min);
+        }
 
     }
 }
