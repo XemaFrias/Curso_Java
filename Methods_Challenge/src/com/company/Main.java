@@ -1,7 +1,7 @@
 package com.company;
 
 public class Main {
-
+	private static final String INVALID_VALUE_MESSAGE ="Invalid Value\n";
     public static void main(String[] args) {
 	boolean GameOver=true;
 	int score=800;
@@ -19,6 +19,16 @@ public class Main {
 
     int HighScorePosition= calculateHighScorePosition(1500);
     displayHighPosition("Tim",HighScorePosition);
+
+		System.out.println(getDurationString(134,43));
+		System.out.println(getDurationString(134,73));
+		System.out.println(getDurationString(7583));
+		System.out.println(getDurationString(-77443));
+
+		System.out.println(area(5.0));
+		System.out.println(area(-2));
+		System.out.println(area(5.0,4.0));
+		System.out.println(area(23,-342.0));
 
     }
 
@@ -75,5 +85,43 @@ public class Main {
 	//Challenge to see if first 2 parameters equal the last one
 	public static boolean hasEqualSum(int num1, int num2, int num3){
     	return (num1+num2)==num3;
+	}
+
+	//Challenge transform minutes and seconds to HH MM SS
+	public static String getDurationString(int minutes, int seconds){
+    	if (minutes<0 || seconds< 0 || seconds>59){
+			System.out.println("Minutes that were given aren't valid");
+    		return INVALID_VALUE_MESSAGE;
+		}
+
+    	int hours=minutes/60;
+    	minutes=minutes%60;
+		return hours+"h "+minutes+"m "+seconds+"s\n";
+    }
+
+	//Challenge transform seconds to HH MM SS
+	public static String getDurationString(int seconds){
+		if (seconds< 0){
+			System.out.println("Seconds given aren't valid");
+			return INVALID_VALUE_MESSAGE;
+		}
+		int minutes=seconds/60;
+		seconds=seconds%60;
+		return getDurationString(minutes,seconds);
+	}
+
+	//Challenge get the radius for a circle and calculate its area
+	public static double area(double radius){
+    	if (radius<0){
+    		return -1.0;
+		}
+    	return radius * radius * Math.PI;
+	}
+	//Assuming equilateral rectangle, take side and height and calculate area
+	public static double area(double x,double y){
+		if (x<0 || y<0){
+			return -1.0;
+		}
+		return x * y;
 	}
 }

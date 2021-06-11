@@ -31,6 +31,11 @@ public class Main {
         myStr="Reverse words in a sentence";
         System.out.println(myStr);
         control=reverseWords(myStr);
+
+        //check Rotation
+        myStr="abcd";
+        myStr2="bcda";
+        control =checkRotation(myStr,myStr2);
     }
 
     public static void printDuplicateChar(String myStr){
@@ -157,6 +162,23 @@ public class Main {
         }
         System.out.print("If we only want to reverse the order of words: ");
         System.out.println(myCharStr);
+        return 1;
+    }
+
+    public static int checkRotation(String myStr, String myStr2){
+        //Is the same operations as if checking if they're anagrams
+        char [] myCharString=myStr.toCharArray();
+        char [] myCharString2= myStr2.toCharArray();
+        Arrays.sort(myCharString);
+        Arrays.sort(myCharString2);
+        //After sorting everything, both arrays  should be the same
+        for (int i=0;i< myCharString.length;i++){
+            if(myCharString[i]!=myCharString2[i]){
+                System.out.println("They are not rotations of each other");
+                return -1;
+            }
+        }
+        System.out.println("They are rotations of each other");
         return 1;
     }
 }
