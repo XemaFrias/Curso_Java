@@ -1,4 +1,5 @@
 package com.company;
+import java.util.Scanner;
 
 
 public class Main {
@@ -23,6 +24,11 @@ public class Main {
 
         System.out.println("Find if 2 numbers share a Digit");
         System.out.println(hasSharedDigit(143,721));
+
+       /* System.out.println("The user introduces 10 numbers and we add them");
+        System.out.println("The result of the numbers is "+sum10());*/
+
+        maxMinNumbers();
 
     }
     public static long ThreeAndFive(){
@@ -101,4 +107,49 @@ public class Main {
         }
         return false;
     }
+
+    public static int sum10(){
+        Scanner scan= new Scanner(System.in);
+        System.out.println("I'm going to ask you for 10 numbers");
+        System.out.println(("If, at any time, one of your inputs is not a number, I will stop asking"));
+        int result=0;
+        int aux=0; //Useful for storing the numbers parse by the user
+        boolean numChecker; //To check if the user is passing a number;
+        for (int i=1; i<=10 ;i++){
+            System.out.println("Enter number #"+i);
+            numChecker= scan.hasNextInt();
+            if (!numChecker){
+                System.out.println("That last input wasn't a number. Exiting");
+                return -1;
+            }
+            result+= scan.nextInt();
+            scan.nextLine();
+        }
+        scan.close();
+        return result;
+    }
+
+    public static void maxMinNumbers(){
+        Scanner scan =new Scanner(System.in);
+        int min=Integer.MAX_VALUE;
+        int max= Integer.MIN_VALUE;
+        int auxNum;
+        while(true){
+            System.out.println("Insert a New number");
+            if(!scan.hasNextInt()){
+                break;
+            }
+            auxNum=scan.nextInt();
+            scan.nextLine();
+            if(auxNum>max){
+                max=auxNum;
+            }
+            if(auxNum<min){
+                min=auxNum;
+            }
+        }
+        scan.close();
+        System.out.println("The maximum number was "+max+" and the minimum number was "+min);
+    }
+
 }
